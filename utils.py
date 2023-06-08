@@ -85,7 +85,7 @@ def get_gpt_response(message):
 
 
 ###MAIN###
-async def create_summary():
+def create_summary():
     ids = get_channels_ids()
     conversation_history = get_conversation_history(ids[params.CHANNEL])
     conversation_history = '\n'.join(conversation_history[::-1])
