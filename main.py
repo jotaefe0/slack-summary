@@ -1,12 +1,12 @@
-from fastapi import FastAPI, Response, BackgroundTasks
+from fastapi import FastAPI, Response, BackgroundTasks, Form
 import utils
 import params
 from pydantic import BaseModel
 
 app = FastAPI()
 
-class SlashCommandPayload(BaseModel):
-    channel_id: str
+# class SlashCommandPayload(BaseModel):
+#     channel_id: str
    
 
 def send_summary():
@@ -14,10 +14,10 @@ def send_summary():
     utils.send_msg(params.CHANNEL, summary)
 
 @app.post("/summary")
-async def trigger_endpoint(background_tasks: BackgroundTasks, payload: SlashCommandPayload):
+async def trigger_endpoint(background_tasks: BackgroundTasks, channel_id: str = Form(...)):
     #Slack backslash expects a response in a 3 sec so we process on background
     # background_tasks.add_task(send_summary)
     
-    channel_id = payload.channel_id
+    # channel_id = payload.channel_id
     return f"this was sent from {channel_id}"
     return Response(status_code=200)
