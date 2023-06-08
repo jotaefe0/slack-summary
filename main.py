@@ -5,9 +5,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# class SlashCommandPayload(BaseModel):
-#     channel_id: str
-   
 
 def send_summary(channel_id):
     summary = utils.create_summary(channel_id)
