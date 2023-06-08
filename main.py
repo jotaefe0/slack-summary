@@ -4,7 +4,7 @@ import params
 
 app = FastAPI()
 
-@app.get("/summary")
+@app.post("/summary")
 async def trigger_endpoint():
     summary = await utils.create_summary()
     utils.send_msg(params.CHANNEL, summary)
