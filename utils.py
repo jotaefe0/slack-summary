@@ -85,9 +85,8 @@ def get_gpt_response(message):
 
 
 ###MAIN###
-def create_summary():
-    ids = get_channels_ids()
-    conversation_history = get_conversation_history(ids[params.CHANNEL])
+def create_summary(channel_id):
+    conversation_history = get_conversation_history(channel_id)
     conversation_history = '\n'.join(conversation_history[::-1])
     prompt = set_prompt(conversation_history)
     message = format_message(prompt)
