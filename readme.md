@@ -2,6 +2,9 @@
 
 This application provides a summary functionality triggered by the `/summary` command on Slack.
 
+![slack-bot](https://gifyu.com/image/Sutzy)
+
+
 ## Installation
 
 To install the application, follow these steps:
